@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: elz-ai-uat
+    env: python
+    plan: free
+    region: singapore
+    branch: uat
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "cd app/backend && uvicorn app:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: APP_ENV
+        value: uat
