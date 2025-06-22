@@ -27,6 +27,18 @@ def resp_400(*, data: str = None, message: str = "Bad Request") -> JSONResponse:
     )
 
 
+def resp_403(*, data: str = None, message: str = "Forbidden") -> JSONResponse:
+    return JSONResponse(
+        status_code=status.HTTP_403_FORBIDDEN,
+        content={
+            "code": 403,
+            "message": message,
+            "success": False,
+            "data": data
+        }
+    )
+
+
 def resp_500(*, data: str = None, message: str = "Internal Server Error") -> JSONResponse:
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
